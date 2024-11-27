@@ -5,5 +5,6 @@
 ![image](https://github.com/user-attachments/assets/52d562d3-1030-4381-9dbd-82a3303c39f1)
 
 ## 타임캡슐상세조회
-![image](https://github.com/user-attachments/assets/8351d8c2-ccae-4719-9a58-8053dc37ff3c)
+![image](https://github.com/user-attachments/assets/7fdcbf08-a1cd-41e1-9446-722e9526e8db)
+
 
