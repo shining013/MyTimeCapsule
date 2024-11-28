@@ -84,21 +84,27 @@ class WriteActivity : AppCompatActivity() {
                 alertDialog.setMessage("캡슐을 저장하시겠습니까?")
                 alertDialog.setPositiveButton("확인"){ dialog, _ ->
                     dialog.dismiss()
-
-                    // 확인 시 저장
-                    val resultIntent = Intent()
-                    resultIntent.putExtra("title", capsule.title)
-                    resultIntent.putExtra("content", capsule.content)
-                    resultIntent.putExtra("date", capsule.date)
-                    resultIntent.putExtra("time", capsule.time)
-                    resultIntent.putExtra("friend", capsule.friend)
-                    setResult(Activity.RESULT_OK, resultIntent)
-                    println("캡슐 생성 성공")
+                    var size = SharedData.capsuleList.size
+                    // 리스트에 저장
+                    SharedData.capsuleList.add(capsule)
+                    var size2 = SharedData.capsuleList.size
+                    if((size2-size)==1){
+                        println("캡슐 생성 성공")
+                    }
+//                    // 확인 시 저장
+//                    val resultIntent = Intent()
+//                    resultIntent.putExtra("title", capsule.title)
+//                    resultIntent.putExtra("content", capsule.content)
+//                    resultIntent.putExtra("date", capsule.date)
+//                    resultIntent.putExtra("time", capsule.time)
+//                    resultIntent.putExtra("friend", capsule.friend)
+//                    setResult(Activity.RESULT_OK, resultIntent)
+//                    println("캡슐 생성 성공")
                     finish()
                 }
                 alertDialog.setNegativeButton("취소"){ dialog, _ ->
                     dialog.dismiss()
-                    println("캡슐 생성 취소ㅁㄴ")
+                    println("캡슐 생성 취소")
                     return@setNegativeButton
                 }
                 alertDialog.show()
