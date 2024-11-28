@@ -30,7 +30,7 @@ class ReadActivity : AppCompatActivity() {
         val countdownText = findViewById<TextView>(R.id.textView2)
         val content = findViewById<TextView>(R.id.textView3)
         val targetDate = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault())
-            .parse("2024.11.28 14:49")
+            .parse("2024.11.28 15:53")
 
         content.alpha = 0f
         targetDate?.let {
@@ -107,6 +107,7 @@ class ReadActivity : AppCompatActivity() {
                 override fun onFinish() {
                     countdownText.text = "타임캡슐 오픈!"
                     fadeInView(content)
+
                 }
             }.start()
         }

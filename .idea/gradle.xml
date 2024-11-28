@@ -6,7 +6,10 @@
       <GradleProjectSettings>
         <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
         <option name="gradleJvm" value="jbr-21" />
+=======
+>>>>>>> 1dc0699e1ee41efdf938c2cfd5b6d5a428988115
         <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
