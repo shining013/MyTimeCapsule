@@ -19,6 +19,36 @@ import com.lyj.timecapsule.model.Capsule
 class WriteActivity : AppCompatActivity() {
     val capsule: Capsule = Capsule()
 
+    // 타임 캡슐 시간 체크
+    fun chkPastDate(date: String, time: String): Boolean{
+        val currentCalendar = Calendar.getInstance()
+        currentCalendar.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+        val chkCalendar = Calendar.getInstance()
+        chkCalendar.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+
+        val d = capsule.date.split("/")
+        val t = capsule.time.split("/")
+        chkCalendar.set(Calendar.YEAR, d[0].toInt())
+        chkCalendar.set(Calendar.MONTH, d[1].toInt() - 1)
+        chkCalendar.set(Calendar.DAY_OF_MONTH, d[2].toInt())
+        chkCalendar.set(Calendar.HOUR_OF_DAY, t[0].toInt())
+        chkCalendar.set(Calendar.MINUTE, t[1].toInt())
+
+        println("current: ${currentCalendar.get(Calendar.YEAR)}," +
+                "${currentCalendar.get(Calendar.MONTH)}," +
+                "${currentCalendar.get(Calendar.DAY_OF_MONTH)}," +
+                "${currentCalendar.get(Calendar.HOUR_OF_DAY)}," +
+                "${currentCalendar.get(Calendar.MINUTE)}")
+        println("chkCalendar: ${chkCalendar.get(Calendar.YEAR)}," +
+                "${chkCalendar.get(Calendar.MONTH)}," +
+                "${chkCalendar.get(Calendar.DAY_OF_MONTH)}," +
+                "${chkCalendar.get(Calendar.HOUR_OF_DAY)}," +
+                "${chkCalendar.get(Calendar.MINUTE)}")
+        // 미래 시간인 경우 통과
+        if(chkCalendar.after(currentCalendar)) return false
+        else return true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
@@ -39,7 +69,10 @@ class WriteActivity : AppCompatActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val minute = calendar.get(Calendar.MINUTE)
-        capsule.date = "$year/${month + 1 }/${day + 1}"
+
+        time.setHour(hour)
+        time.setMinute(minute)
+        capsule.date = "$year/${month + 1 }/${day}"
         capsule.time = "$hour/$minute"
 
         // 날짜 선택
@@ -60,11 +93,21 @@ class WriteActivity : AppCompatActivity() {
         createButton.setOnClickListener {
             val resultIntent = Intent()
             val alertDialog = AlertDialog.Builder(this)
+            println(chkPastDate(capsule.date, capsule.time))
 
             // 제목 본문 null인 경우 경고
             if(title.text?.isEmpty() == true || content.text?.isEmpty() == true){
                 alertDialog.setTitle("캡슐 생성 실패")
                 alertDialog.setMessage("제목과 본문은 필수로 작성해야 합니다")
+                alertDialog.setPositiveButton("확인"){ dialog, _ ->
+                    dialog.dismiss()
+                }
+                alertDialog.show()
+            }
+            // 과거 시간인 경우 경고
+            else if(chkPastDate(capsule.date, capsule.time)){
+                alertDialog.setTitle("캡슐 생성 실패")
+                alertDialog.setMessage("타임캡슐을 과거에 묻을 수 없습니다.")
                 alertDialog.setPositiveButton("확인"){ dialog, _ ->
                     dialog.dismiss()
                 }
