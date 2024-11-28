@@ -32,12 +32,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="148dp"
         android:layout_marginTop="212dp"
         android:fontFamily="@font/jacquarda_bastarda_9"
         android:text="Capsule"
-        android:textSize="64sp" />
+        android:textSize="58sp" />
 
     <ImageButton
         android:id="@+id/btnViewTC"
