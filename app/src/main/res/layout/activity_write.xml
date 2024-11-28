@@ -179,4 +179,25 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonCreate"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="캡슐 저장" />
+
+        <Button
+            android:id="@+id/buttonCancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="취소" />
+    </LinearLayout>
+
 </LinearLayout>
