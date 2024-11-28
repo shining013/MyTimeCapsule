@@ -40,7 +40,7 @@
         android:textSize="64sp" />
 
     <ImageButton
-        android:id="@+id/btnCreateTC"
+        android:id="@+id/btnViewTC"
         android:layout_width="wrap_content"
         android:layout_height="101dp"
         android:layout_alignParentBottom="true"
@@ -52,7 +52,7 @@
         android:src="@drawable/image_1" />
 
     <ImageButton
-        android:id="@+id/btnViewTC"
+        android:id="@+id/btnCreateTC"
         android:layout_width="wrap_content"
         android:layout_height="101dp"
         android:layout_alignParentBottom="true"
