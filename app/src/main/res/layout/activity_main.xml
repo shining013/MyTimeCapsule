@@ -10,6 +10,7 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
@@ -28,6 +29,7 @@
         android:text="Time"
         android:textSize="64sp" />
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -40,7 +42,7 @@
         android:textSize="64sp" />
 
     <ImageButton
-        android:id="@+id/btnCreateTC"
+        android:id="@+id/btnViewTC"
         android:layout_width="wrap_content"
         android:layout_height="101dp"
         android:layout_alignParentBottom="true"
@@ -52,7 +54,7 @@
         android:src="@drawable/image_1" />
 
     <ImageButton
-        android:id="@+id/btnViewTC"
+        android:id="@+id/btnCreateTC"
         android:layout_width="wrap_content"
         android:layout_height="101dp"
         android:layout_alignParentBottom="true"
