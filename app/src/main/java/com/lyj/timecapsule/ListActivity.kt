@@ -12,19 +12,13 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
-
-        findViewById<Button>(R.id.buttonShow).setOnClickListener {
-            val intent = Intent(this, ReadActivity::class.java)
-            startActivity(intent);
-        }
     }
 
     override fun onResume() {
         super.onResume()
 
         val listView: ListView = findViewById(R.id.listView)
-
-        val list = SharedData.capsuleList.map {it.title}
+        val list = SharedData.capsuleList.map { it.title }
         // ArrayAdapter 설정
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
 
@@ -34,8 +28,13 @@ class ListActivity : AppCompatActivity() {
         listView.setOnItemClickListener(){parent, view, position, id  ->
             val selectedItem = list[position]
 
+            val selectedCapsule = SharedData.capsuleList[position]
             val intent = Intent(this, ReadActivity::class.java).apply {
-                putExtra("title",selectedItem)
+                putExtra("title",selectedCapsule.title)
+                putExtra("content",selectedCapsule.content)
+                putExtra("date", selectedCapsule.date)
+                putExtra("time", selectedCapsule.time)
+                putExtra("friend", selectedCapsule.friend)
             }
             startActivity(intent)
         }
