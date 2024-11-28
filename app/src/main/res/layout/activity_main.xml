@@ -10,6 +10,7 @@
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="match_parent"
@@ -27,6 +28,7 @@
         android:fontFamily="@font/jacquarda_bastarda_9"
         android:text="Time"
         android:textSize="64sp" />
+
 
     <TextView
         android:id="@+id/textView2"
