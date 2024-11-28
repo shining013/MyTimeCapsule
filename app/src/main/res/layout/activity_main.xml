@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -11,46 +11,57 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mainpage" />
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mainpage" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="148dp"
         android:layout_marginTop="128dp"
         android:fontFamily="@font/jacquarda_bastarda_9"
         android:text="Time"
-        android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="64sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="212dp"
         android:fontFamily="@font/jacquarda_bastarda_9"
         android:text="Capsule"
-        android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="64sp" />
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="299dp"
-        android:layout_height="109dp"
+        android:layout_width="wrap_content"
+        android:layout_height="101dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginBottom="121dp"
         android:backgroundTint="#34EFEFEF"
-        android:tint="#00FFFFFF"
-        app:srcCompat="@drawable/image_3"
-        tools:layout_editor_absoluteX="94dp"
-        tools:layout_editor_absoluteY="416dp" />
+        android:contentDescription="read capsule"
+        android:src="@drawable/image_1" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="101dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginBottom="238dp"
+        android:backgroundTint="#34EFEFEF"
+        android:contentDescription="read capsule"
+        android:src="@drawable/image_2" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
