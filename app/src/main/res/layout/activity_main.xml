@@ -40,7 +40,7 @@
         android:textSize="64sp" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/btnCreateTC"
         android:layout_width="wrap_content"
         android:layout_height="101dp"
         android:layout_alignParentBottom="true"
@@ -48,11 +48,11 @@
         android:layout_marginStart="98dp"
         android:layout_marginBottom="121dp"
         android:backgroundTint="#34EFEFEF"
-        android:contentDescription="read capsule"
+        android:contentDescription="create capsule"
         android:src="@drawable/image_1" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnViewTC"
         android:layout_width="wrap_content"
         android:layout_height="101dp"
         android:layout_alignParentBottom="true"
