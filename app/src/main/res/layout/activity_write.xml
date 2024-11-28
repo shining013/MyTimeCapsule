@@ -77,7 +77,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="제목 : "
-                android:textSize="24sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editTitleText_write"
@@ -101,7 +101,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="내용 : "
-                android:textSize="24sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editContentText_write"
@@ -125,7 +125,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="날짜 : "
-                android:textSize="24sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="같이 보기 : "
-            android:textSize="24sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/editShareText_write"
