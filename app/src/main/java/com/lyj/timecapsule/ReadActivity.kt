@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -27,13 +28,32 @@ class ReadActivity : AppCompatActivity() {
 
         topCapsule = findViewById(R.id.top)
         bottomCapsule = findViewById(R.id.bottom)
+
         val countdownText = findViewById<TextView>(R.id.textView2)
         val content = findViewById<TextView>(R.id.textView3)
+        val getcontent = intent.getStringExtra("content")?:"존재하지 않습니다."
+        content.text = getcontent
+
+        val friend = findViewById<TextView>(R.id.textView5)
+        val getFriend = intent.getStringExtra("friend")?:""
+        friend.text=getFriend+"과 같이보기"
         val title = findViewById<TextView>(R.id.textView)
         val gettitle = intent.getStringExtra("title") ?: "타임캡슐을 만들어 주세요"
         title.text =gettitle
+
+
+        val date = intent.getStringExtra("date") ?: ""
+        val time = intent.getStringExtra("time") ?: ""
+        val formattedDate = date.replace("/", ".")
+        val viewDate = findViewById<TextView>(R.id.textView4)
+        viewDate.text=formattedDate
+        val formattedTime = time.replace("/", ":")
+        val dateTime = "$formattedDate $formattedTime"
         val targetDate = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault())
-            .parse("2024.11.28 16:12")
+            .parse(dateTime)
+
+
+
 
         content.alpha = 0f
         targetDate?.let {

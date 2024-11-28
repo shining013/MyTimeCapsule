@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="D-3650 18h 36m"
-        android:textColor="#394ED3"
+        android:textColor="#F52828"
         android:textSize="20sp" />
 
     <TextView
@@ -64,9 +64,17 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
-            android:gravity="center_vertical"
+            android:gravity="center_horizontal|center_vertical"
             android:text="TextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmelkfjsiTextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmelkfjTextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmTextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmelkfjsikifjselkfjsikifjssikifjskifjs"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentBottom="true"
+            android:text="TextView" />
 
     </RelativeLayout>
 
