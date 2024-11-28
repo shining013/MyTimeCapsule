@@ -1,10 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/read"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".ReadActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="타임캡슐제목이다."
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="D-3650 18h 36m"
+        android:textColor="#394ED3"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="2034.12.25" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <View
+            android:id="@+id/top"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/top" />
+
+        <View
+            android:id="@+id/bottom"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/top"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bottom" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="TextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmelkfjsiTextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmelkfjTextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmTextViewsfasifajsosjflisigjslkfjlskfjsklfjslkfjslkfmsklfmelkfjsikifjselkfjsikifjssikifjskifjs"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
