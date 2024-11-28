@@ -1,8 +1,10 @@
 package com.lyj.timecapsule
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.icu.util.Calendar
+import android.icu.util.TimeZone
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,10 +33,14 @@ class WriteActivity : AppCompatActivity() {
 
         // 날짜, 시간 선택하기 전 기본 값
         val calendar = Calendar.getInstance()
+        calendar.timeZone = TimeZone.getTimeZone("Asia/Seoul")
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
         capsule.date = "$year/${month + 1 }/${day + 1}"
+        capsule.time = "$hour/$minute"
 
         // 날짜 선택
         calButton.setOnClickListener{
@@ -42,23 +48,22 @@ class WriteActivity : AppCompatActivity() {
                 capsule.date = "$selectedYear/${selectedMonth + 1 }/$selectedDay"
                 calButton.text = capsule.date
             }, year, month, day)
-
             datePickerDialog.show()
         }
 
-        // TimePicker 클릭 이벤트
-        time.setOnTimeChangedListener { _, hour, minute ->
-            capsule.time = "$hour/$minute"
+        // 시간 선택
+        time.setOnTimeChangedListener { _, selectedHour, selectedMinute ->
+            capsule.time = "$selectedHour/$selectedMinute"
         }
 
-
+        // 캡슐 생성
         createButton.setOnClickListener {
             val resultIntent = Intent()
             val alertDialog = AlertDialog.Builder(this)
 
             // 제목 본문 null인 경우 경고
             if(title.text?.isEmpty() == true || content.text?.isEmpty() == true){
-                alertDialog.setTitle("캡슐 저장 실패")
+                alertDialog.setTitle("캡슐 생성 실패")
                 alertDialog.setMessage("제목과 본문은 필수로 작성해야 합니다")
                 alertDialog.setPositiveButton("확인"){ dialog, _ ->
                     dialog.dismiss()
@@ -70,10 +75,38 @@ class WriteActivity : AppCompatActivity() {
                 capsule.content = content.text.toString()
                 capsule.friend = friend.text.toString()
 
+                if(capsule.friend?.isEmpty() == true) capsule.friend = "none"
+
                 println("${capsule.title}, ${capsule.content}, ${capsule.date}, ${capsule.time}, ${capsule.friend}")
+
+                // 저장확인
+                alertDialog.setTitle("확인")
+                alertDialog.setMessage("캡슐을 저장하시겠습니까?")
+                alertDialog.setPositiveButton("확인"){ dialog, _ ->
+                    dialog.dismiss()
+
+                    // 확인 시 저장
+                    val resultIntent = Intent()
+                    resultIntent.putExtra("title", capsule.title)
+                    resultIntent.putExtra("content", capsule.content)
+                    resultIntent.putExtra("date", capsule.date)
+                    resultIntent.putExtra("time", capsule.time)
+                    resultIntent.putExtra("friend", capsule.friend)
+                    setResult(Activity.RESULT_OK, resultIntent)
+                    println("캡슐 생성 성공")
+                    finish()
+                }
+                alertDialog.setNegativeButton("취소"){ dialog, _ ->
+                    dialog.dismiss()
+                    println("캡슐 생성 취소ㅁㄴ")
+                    return@setNegativeButton
+                }
+                alertDialog.show()
+
             }
         }
 
+        // 생성 취소
         cancleButton.setOnClickListener {
             onBackPressed()
         }
